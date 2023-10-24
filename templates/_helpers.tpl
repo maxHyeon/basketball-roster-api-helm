@@ -1,7 +1,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "workshop-example-app.name" -}}
+{{- define "basketball-roster-api.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
@@ -10,7 +10,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "workshop-example-app.fullname" -}}
+{{- define "basketball-roster-api.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -26,16 +26,16 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "workshop-example-app.chart" -}}
+{{- define "basketball-roster-api.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Common labels
 */}}
-{{- define "workshop-example-app.labels" -}}
-helm.sh/chart: {{ include "workshop-example-app.chart" . }}
-{{ include "workshop-example-app.selectorLabels" . }}
+{{- define "basketball-roster-api.labels" -}}
+helm.sh/chart: {{ include "basketball-roster-api.chart" . }}
+{{ include "basketball-roster-api.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -45,17 +45,17 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "workshop-example-app.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "workshop-example-app.name" . }}
+{{- define "basketball-roster-api.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "basketball-roster-api.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{/*
 Create the name of the service account to use
 */}}
-{{- define "workshop-example-app.serviceAccountName" -}}
+{{- define "basketball-roster-api.serviceAccountName" -}}
 {{- if .Values.serviceAccount.create }}
-{{- default (include "workshop-example-app.fullname" .) .Values.serviceAccount.name }}
+{{- default (include "basketball-roster-api.fullname" .) .Values.serviceAccount.name }}
 {{- else }}
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
