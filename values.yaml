@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  tag: "5357e59"
+  tag: "721f73c"
   repository: 014104314849.dkr.ecr.ap-northeast-2.amazonaws.com/basketball-roster-api
   pullPolicy: IfNotPresent
   
