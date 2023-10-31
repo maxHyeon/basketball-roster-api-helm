@@ -20,7 +20,7 @@ serviceAccount:
   # Annotations to add to the service account
   annotations: 
     eks.amazonaws.com/role-arn: arn:aws:iam::014104314849:role/basketball-roster-api-role
-  name: basketabll-roster-api
+  name: basketball-roster-api
 
 configMap:
   # Specifies whether a service account should be created
